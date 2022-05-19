@@ -1,13 +1,5 @@
 name: Run kb-sdk compile
-
-on:
-  workflow_dispatch:
-    secrets:
-      GHCR_USERNAME:
-        required: true
-      GHCR_TOKEN:
-        required: true
-
+on: workflow_dispatch
 jobs:
   docker_build:
     runs-on: ubuntu-latest
