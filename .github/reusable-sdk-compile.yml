@@ -1,0 +1,26 @@
+name: Run kb-sdk compile
+
+on:
+  workflow_dispatch:
+    secrets:
+      GHCR_USERNAME:
+        required: true
+      GHCR_TOKEN:
+        required: true
+
+jobs:
+  docker_build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: kb-sdk compile
+      env:
+        PR: "${{ github.event.pull_request.number }}"
+        SHA: "${{ github.event.pull_request.head.sha }}"
+        DOCKER_ACTOR: "${{ secrets.GHCR_USERNAME }}"
+        DOCKER_TOKEN: "${{ secrets.GHCR_TOKEN }}"
+      shell: bash
+      run: |
+          docker pull kbase/kb-sdk
+          docker run kbase/kb-sdk genscript > /usr/local/bin/kb-sdk
+          chmod +x /usr/local/bin/kb-sdk
+          kb-sdk version
