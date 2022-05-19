@@ -1,3 +1,4 @@
+---
 name: Run kb-sdk compile
 on: workflow_dispatch
 jobs:
