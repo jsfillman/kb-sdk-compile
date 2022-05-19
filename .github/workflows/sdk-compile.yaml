@@ -13,7 +13,7 @@ jobs:
         DOCKER_TOKEN: "${{ secrets.GHCR_TOKEN }}"
       shell: bash
       run: |
-          docker pull kbase/kb-sdk
-          docker run kbase/kb-sdk genscript > /usr/local/bin/kb-sdk
+          docker -t pull kbase/kb-sdk
+          docker -t run kbase/kb-sdk genscript > /usr/local/bin/kb-sdk
           chmod +x /usr/local/bin/kb-sdk
           kb-sdk version
