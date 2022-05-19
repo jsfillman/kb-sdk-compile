@@ -2,7 +2,7 @@
 name: Run kb-sdk compile
 on: workflow_dispatch
 jobs:
-  docker_build:
+  sdk-compile:
     runs-on: ubuntu-latest
     steps:
     - name: kb-sdk compile
