@@ -5,6 +5,11 @@ jobs:
   sdk-compile:
     runs-on: ubuntu-latest
     steps:
+    - name: Check out GitHub Repo
+      if: github.event.pull_request.draft == false
+      with:
+        ref: "${{ github.event.pull_request.head.sha }}"
+      uses: actions/checkout@v2
     - name: kb-sdk compile
       env:
         PR: "${{ github.event.pull_request.number }}"
