@@ -15,4 +15,4 @@ jobs:
       shell: bash
       run: |
           kb-sdk version
-          ls /github
+          kb-sdk compile
