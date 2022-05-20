@@ -4,22 +4,23 @@ on: workflow_dispatch
 jobs:
   sdk-compile:
     runs-on: ubuntu-latest
+    container: kbase/kb-sdk
     steps:
     - name: Check out GitHub Repo
       if: github.event.pull_request.draft == false
       with:
         ref: "${{ github.event.pull_request.head.sha }}"
       uses: actions/checkout@v2
-    - name: kb-sdk compile
-      env:
-        PR: "${{ github.event.pull_request.number }}"
-        SHA: "${{ github.event.pull_request.head.sha }}"
-        DOCKER_ACTOR: "${{ secrets.GHCR_USERNAME }}"
-        DOCKER_TOKEN: "${{ secrets.GHCR_TOKEN }}"
-      shell: bash
-      run: |
-          sudo apt install default-jdk
-          docker pull kbase/kb-sdk
+#    - name: kb-sdk compile
+#      env:
+#        PR: "${{ github.event.pull_request.number }}"
+#        SHA: "${{ github.event.pull_request.head.sha }}"
+#        DOCKER_ACTOR: "${{ secrets.GHCR_USERNAME }}"
+#        DOCKER_TOKEN: "${{ secrets.GHCR_TOKEN }}"
+#      shell: bash
+#      run: |
+#          sudo apt install default-jdk
+#          docker pull kbase/kb-sdk
 #          docker run -t kbase/kb-sdk genscript > /usr/local/bin/kb-sdk
 #          chmod +x /usr/local/bin/kb-sdk
 #          kb-sdk version
