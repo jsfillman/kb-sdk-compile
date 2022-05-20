@@ -10,6 +10,8 @@ jobs:
       with:
         ref: "${{ github.event.pull_request.head.sha }}"
       uses: actions/checkout@v2
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
     - name: kb-sdk compile
       env:
         PR: "${{ github.event.pull_request.number }}"
