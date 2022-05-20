@@ -24,5 +24,3 @@ jobs:
 #          docker run -t kbase/kb-sdk genscript > /usr/local/bin/kb-sdk
 #          chmod +x /usr/local/bin/kb-sdk
           kb-sdk version
-#    - name: Setup upterm session
-#      uses: lhotari/action-upterm@v1
