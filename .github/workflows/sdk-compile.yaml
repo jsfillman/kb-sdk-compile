@@ -15,4 +15,5 @@ jobs:
       shell: bash
       run: |
           kb-sdk version
-          kb-sdk compile
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
