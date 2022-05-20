@@ -14,7 +14,6 @@ jobs:
     - name: kb-sdk compile
       shell: bash
       run: |
-          kb-sdk version
-          which curl
+          kb-sdk version; which curl
     - name: Setup upterm session
       uses: lhotari/action-upterm@v1
