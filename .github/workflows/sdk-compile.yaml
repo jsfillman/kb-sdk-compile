@@ -14,6 +14,10 @@ jobs:
     - name: kb-sdk compile
       shell: bash
       run: |
-          cd $GITHUB_WORKSPACE; ls; kb-sdk compile; docker build ./
+          cd $GITHUB_WORKSPACE;
+          if [ -f *.spec ] && [ -f Makefile ] ; then
+            kb-sdk compile;
+          fi
+          docker build ./
 #    - name: Setup upterm session
 #      uses: lhotari/action-upterm@v1
