@@ -4,16 +4,16 @@ on: workflow_dispatch
 jobs:
   sdk-compile:
     runs-on: ubuntu-latest
-    container: kbase/kb-sdk
+#    container: kbase/kb-sdk
     steps:
     - name: Check out GitHub Repo
       if: github.event.pull_request.draft == false
       with:
         ref: "${{ github.event.pull_request.head.sha }}"
       uses: actions/checkout@v2
-    - name: kb-sdk compile
-      shell: bash
-      run: |
-          cd /src; ls; kb-sdk version; docker build ./
-#    - name: Setup upterm session
-#      uses: lhotari/action-upterm@v1
+#    - name: kb-sdk compile
+#      shell: bash
+#      run: |
+#          cd /src; ls; kb-sdk version; docker build ./
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
